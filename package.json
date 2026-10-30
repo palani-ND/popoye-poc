@@ -1,0 +1,36 @@
+{
+  "name": "popoye-payments",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "payment-web",
+    "admin-web"
+  ],
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:backend dev:payment dev:admin",
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:payment": "npm run dev --workspace payment-web",
+    "dev:admin": "npm run dev --workspace admin-web",
+    "build": "npm run build --workspace backend && npm run build --workspace payment-web && npm run build --workspace admin-web",
+    "test": "npm run test --workspace backend",
+    "db:migrate": "npm run db:migrate --workspace backend",
+    "db:seed": "npm run db:seed --workspace backend",
+    "db:seed:test": "npm run db:seed:test --workspace backend",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.17.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true,
+    "esbuild@0.25.12": true
+  }
+}
